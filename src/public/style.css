@@ -1,7 +1,11 @@
 body {
  margin: 0;
 }
-
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: 0;
+}
 .page {
     display: flex;
     height: 100vh;
@@ -11,7 +15,7 @@ body {
 }
 
 #paginaLogin {
-    display: flex;
+    display: none;
     background-color: #fff;
     
 }
@@ -28,5 +32,27 @@ body {
 }
 
 #paginaChat {
-    display: none;
+    display: flex;
+}
+.chatArea {
+    flex: 1;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    background-color: #ccc;
+
+}
+
+.chatInput{
+    width: 100%;
+    display: flex;
+}
+#chatTextInput {
+    flex: 1;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 15px;
+    background-color: azure;
+    outline: 0;
+    border: 0;
 }
