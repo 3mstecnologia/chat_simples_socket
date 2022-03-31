@@ -1,0 +1,29 @@
+{
+  "name": "chat_simples_socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3mstecnologia/chat_simples_socket.git"
+  },
+  "keywords": [
+    "chat",
+    "batepapo",
+    "socket",
+    "js",
+    "nodejs"
+  ],
+  "author": "Matheus Schmitt//Bonieky Lacerda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3mstecnologia/chat_simples_socket/issues"
+  },
+  "homepage": "https://github.com/3mstecnologia/chat_simples_socket#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
