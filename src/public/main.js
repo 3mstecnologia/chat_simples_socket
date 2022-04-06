@@ -44,6 +44,7 @@ function addMessage(type, user, mensagem) {
 
       break;
   }
+  ul.scrollTop = ul.scrollHeight;
 }
 
 //garantindo que a pagina de login vai aparecer primeiro
@@ -107,6 +108,8 @@ socket.on("mostrar-msg", (data) => {
 //mostrar mensagem quando for desconectado
 socket.on("disconnect", () => {
   addMessage("status", null, "Voce foi Desconectado!");
+  userList = [];
+  renderUserList();
 });
 //mostrar mensagem de erro ao tentar se reconectar
 socket.on("reconnect_error", () => {
