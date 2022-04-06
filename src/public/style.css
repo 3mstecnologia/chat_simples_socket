@@ -37,10 +37,42 @@ ul, li {
 .chatArea {
     flex: 1;
     width: 100%;
-    max-width: 300px;
     display: flex;
-    background-color: #ccc;
-
+    background-color: #FFF;
+}
+.chatList {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 10px;
+}
+.chatList li {
+    padding: 3px;
+    font-size: 15px;
+}
+.chatList li.m-status{
+    color: #333;
+    font-style: italic;
+}
+.chatList li.m-text span{
+    color: #000FFF;
+    font-weight: bold;
+}
+.chatList li.m-text span.eumesmo{
+    color: #43ae95;
+    font-style: bold;
+}
+.userList {
+    width: 200px;
+    background-color: #CCC;
+    overflow-y: scroll;
+    max-height: calc(100vh - 40px);
+}
+.userList li {
+    padding: 5px;
+    border-bottom: 1px solid #000;
 }
 
 .chatInput{
