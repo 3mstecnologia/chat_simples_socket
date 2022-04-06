@@ -15,7 +15,7 @@ ul, li {
 }
 
 #paginaLogin {
-    display: none;
+    display: flex;
     background-color: #fff;
     
 }
@@ -32,7 +32,7 @@ ul, li {
 }
 
 #paginaChat {
-    display: flex;
+    display: none;
 }
 .chatArea {
     flex: 1;
