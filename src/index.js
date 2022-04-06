@@ -14,15 +14,20 @@ server.listen(5001, () => {
 app.use(express.static(path.join(__dirname, "public")));
 
 let usuariosConectados = [];
+
 // Quando um cliente se conectar ao servidor
 io.on("connection", (socket) => {
   console.log("Cliente conectado");
+
   socket.on("join-request", (username) => {
-    socket.usuariosConectados = username;
+    socket.username = username;
     usuariosConectados.push(username);
     console.log(usuariosConectados);
 
+    //atualizando a lista de usuarios
     socket.emit("user-ok", usuariosConectados);
+
+    //avisando a todos que um novo usuario entrou
     socket.broadcast.emit("list-update", {
       joined: username,
       list: usuariosConectados,
@@ -31,8 +36,12 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("Cliente desconectado");
-    usuariosConectados = usuariosConectados.filter((u) => u != socket.username);
-
+    //remover usuario desconectado
+    usuariosConectados = usuariosConectados.filter(
+      (usuario) => usuario !== socket.username
+    );
+    //usuariosConectados = usuariosConectados.filter((u) => u != socket.username);
+    console.log("saiu " + socket.usuario);
     console.log(usuariosConectados);
     socket.broadcast.emit("list-update", {
       left: socket.username,
@@ -40,8 +49,14 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("chat message", (msg) => {
-    console.log("Mensagem recebida: " + msg);
-    io.emit("chat message", msg);
+  socket.on("send-msg", (msg) => {
+    let obj = {
+      user: socket.username,
+      msg: msg,
+    };
+    console.log(obj);
+    //enviando para o cliente a mensagem
+    //socket.emit("mostrar-msg", obj);
+    socket.broadcast.emit("mostrar-msg", obj);
   });
 });
